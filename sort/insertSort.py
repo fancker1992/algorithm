@@ -5,6 +5,8 @@ def insert_sort(alist):
         for j in range(i, 0, -1):  # 此处注意  j跟到1即可 否则j = 0时j-1 = -1
             if alist[j] < alist[j - 1]:
                 alist[j], alist[j - 1] = alist[j - 1], alist[j]
+            else:
+                break   # alist左侧已为有序  不必进行无畏的循环判断
 
 
 if __name__ == '__main__':

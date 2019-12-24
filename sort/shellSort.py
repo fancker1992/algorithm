@@ -21,9 +21,8 @@ def shell_sort_2(alist):
     while gap >= 1:
         for i in range(gap, n):
             for j in range(i, 0, -gap):
-                if alist[i] < alist[i - gap]:
-                    alist[i], alist[i - gap] = alist[i - gap], alist[i]
-                    i -= gap
+                if j - gap >= 0 and alist[j] < alist[j - gap]:
+                    alist[j], alist[j - gap] = alist[j - gap], alist[j]
                 else:
                     break
         gap //= 2

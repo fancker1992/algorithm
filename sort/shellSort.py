@@ -14,8 +14,23 @@ def shell_sort(alist):
         gap //= 2
 
 
+def shell_sort_2(alist):
+    """希尔排序  方法二"""
+    n = len(alist)
+    gap = n // 2
+    while gap >= 1:
+        for i in range(gap, n):
+            for j in range(i, 0, -gap):
+                if alist[i] < alist[i - gap]:
+                    alist[i], alist[i - gap] = alist[i - gap], alist[i]
+                    i -= gap
+                else:
+                    break
+        gap //= 2
+
+
 if __name__ == '__main__':
     alist = [2, 6, 43, 1, 0, 5, 3, 12]
     print(alist)
-    shell_sort(alist)
+    shell_sort_2(alist)
     print(alist)

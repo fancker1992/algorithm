@@ -1,9 +1,6 @@
-from typing import List
-
-
 def merge_sort(alist):
     n = len(alist)
-    if n == 1:
+    if n == 1:  # 递归必须有条件退出   否则下面的语句会报错None相关错误
         return alist
     mid = n // 2
 

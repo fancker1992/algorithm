@@ -5,6 +5,8 @@ class Node(object):
 
 
 class SingleLinkList(object):
+    """单链表"""
+
     def __init__(self):
         node = None
         self.__head = node
@@ -60,6 +62,33 @@ class SingleLinkList(object):
             cur = cur.next
         print("")
 
+    def is_exits(self, item):
+        cur = self.__head
+        while cur is not None:
+            if cur.item == item:
+                return True
+            cur = cur.next
+        return False
+
+    def remove(self, item):
+        cur = self.__head
+        left_cur = cur
+        count = 0
+        while cur is not None:
+            if cur.item == item:
+                if self.length() == 1:
+                    self.__head = None
+                    return True
+                elif self.length() != 1 and count == 0:
+                    self.__head = cur.next
+                    return True
+                left_cur.next = cur.next
+                return True
+            left_cur = cur
+            cur = cur.next
+            count += 1
+        return False
+
 
 if __name__ == '__main__':
     link_list = SingleLinkList()
@@ -69,3 +98,11 @@ if __name__ == '__main__':
     link_list.insert(2, 4)
     link_list.insert(3, 5)
     link_list.travel()
+    link_list.remove(3)
+    link_list.remove(4)
+    link_list.remove(1)
+    link_list.travel()
+    # print(link_list.is_exits(1))
+    # print(link_list.is_exits(4))
+    # print(link_list.is_exits(3))
+    # print(link_list.is_exits(6))

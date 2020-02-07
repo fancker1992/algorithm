@@ -70,23 +70,37 @@ class SingleLinkList(object):
             cur = cur.next
         return False
 
+    # def remove(self, item):
+    #     cur = self.__head
+    #     left_cur = cur
+    #     count = 0
+    #     while cur is not None:
+    #         if cur.item == item:
+    #             if self.length() == 1:
+    #                 self.__head = None
+    #                 return True
+    #             elif self.length() != 1 and count == 0:
+    #                 self.__head = cur.next
+    #                 return True
+    #             left_cur.next = cur.next
+    #             return True
+    #         left_cur = cur
+    #         cur = cur.next
+    #         count += 1
+    #     return False
     def remove(self, item):
         cur = self.__head
         left_cur = cur
-        count = 0
         while cur is not None:
             if cur.item == item:
-                if self.length() == 1:
-                    self.__head = None
-                    return True
-                elif self.length() != 1 and count == 0:
+                if cur == self.__head:
                     self.__head = cur.next
                     return True
-                left_cur.next = cur.next
-                return True
+                else:
+                    left_cur.next = cur.next
+                    return True
             left_cur = cur
             cur = cur.next
-            count += 1
         return False
 
 

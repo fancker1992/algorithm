@@ -7,8 +7,7 @@ class Node(object):
 class SingleLinkList(object):
     """单链表"""
 
-    def __init__(self):
-        node = None
+    def __init__(self, node: Node = None):
         self.__head = node
 
     def is_empty(self):
